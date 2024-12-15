@@ -64,6 +64,26 @@ class _ContactfromState extends State<Contactfrom> {
                 SizedBox(
                   height: 20.0,
                 ),
+                  TextFormField(
+                  // controller: Phone,
+                  autovalidateMode: AutovalidateMode.onUnfocus,
+                  decoration: InputDecoration(
+                      labelText: "Email",
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0))),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Email is required';
+                    } else if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
+                        .hasMatch(value)) {
+                      return 'Enter a valid email address';
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: 20.0,
+                ),
                 TextFormField(
                   controller: Password,
                   autovalidateMode: AutovalidateMode.onUnfocus,
